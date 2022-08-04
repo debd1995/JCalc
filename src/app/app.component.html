@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button (click)="openSettingDialog()">
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content-section">
+    <div class="breakdown">
+
+    </div>
+    <div class="input">
+        <section>
+            <h4>Input Section</h4>
+            <mat-button-toggle-group [formControl]="metalFC" aria-label="Font Style">
+                <mat-button-toggle value="G">Gold</mat-button-toggle>
+                <mat-button-toggle value="S">Silver</mat-button-toggle>
+            </mat-button-toggle-group>
+        </section>
+    </div>
+</div>
