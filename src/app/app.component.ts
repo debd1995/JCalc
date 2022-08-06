@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog) { }
 
   openSettingDialog() {
-    const dialogRef = this.dialog.open(SettingDialogComponent);
+    const dialogRef = this.dialog.open(SettingDialogComponent, { disableClose: true });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

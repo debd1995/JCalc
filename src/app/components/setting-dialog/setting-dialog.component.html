@@ -1,7 +1,55 @@
 <h2 mat-dialog-title>Settings</h2>
-<mat-dialog-content class="mat-typography">
-    <h3>Heading</h3>
-    <p>Paragraph</p>
+<mat-dialog-content class="setting-body">
+    <form [formGroup]="settingFG" class="setting-body">
+        <h3>Metal Rates</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold 916 <sup style="font-size: 10px;">/10gm</sup></mat-label>
+            <input matInput formControlName="g916">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold 750 <sup style="font-size: 10px;">/10gm</sup></mat-label>
+            <input matInput formControlName="g750">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold 22K <sup style="font-size: 10px;">/10gm</sup></mat-label>
+            <input matInput formControlName="g22K">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Silver <sup style="font-size: 10px;">/10gm</sup></mat-label>
+            <input matInput formControlName="slv">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+
+        <h3>Making Charges</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold HM below 3gm <sup style="font-size: 10px;">/gm</sup>
+            </mat-label>
+            <input matInput formControlName="ghb3">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold HM above 3gm <sup style="font-size: 10px;">/gm</sup>
+            </mat-label>
+            <input matInput formControlName="gha3">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold KDM below 3gm <sup style="font-size: 10px;">/gm</sup>
+            </mat-label>
+            <input matInput formControlName="gkb3">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold KDM above 3gm <sup style="font-size: 10px;">/gm</sup>
+            </mat-label>
+            <input matInput formControlName="gka3">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+
+    </form>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
