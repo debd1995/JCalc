@@ -4,22 +4,26 @@
         <h3>Metal Rates</h3>
         <mat-form-field appearance="outline">
             <mat-label>Gold 916 <sup style="font-size: 10px;">/10gm</sup></mat-label>
-            <input matInput formControlName="g916">
-            <mat-error>Please enter value</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Gold 750 <sup style="font-size: 10px;">/10gm</sup></mat-label>
-            <input matInput formControlName="g750">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="g916">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Gold 22K <sup style="font-size: 10px;">/10gm</sup></mat-label>
-            <input matInput formControlName="g22K">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="g22k">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Gold 750 <sup style="font-size: 10px;">/10gm</sup></mat-label>
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="g750">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Silver <sup style="font-size: 10px;">/10gm</sup></mat-label>
-            <input matInput formControlName="slv">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="slv">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
 
@@ -27,32 +31,44 @@
         <mat-form-field appearance="outline">
             <mat-label>Gold HM below 3gm <sup style="font-size: 10px;">/gm</sup>
             </mat-label>
-            <input matInput formControlName="ghb3">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="ghb3">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Gold HM above 3gm <sup style="font-size: 10px;">/gm</sup>
             </mat-label>
-            <input matInput formControlName="gha3">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="gha3">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Gold KDM below 3gm <sup style="font-size: 10px;">/gm</sup>
             </mat-label>
-            <input matInput formControlName="gkb3">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="gkb3">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Gold KDM above 3gm <sup style="font-size: 10px;">/gm</sup>
             </mat-label>
-            <input matInput formControlName="gka3">
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="gka3">
             <mat-error>Please enter value</mat-error>
         </mat-form-field>
 
+        <h3>Other Charges</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>H.M. Charge <sup style="font-size: 10px;">/piece</sup>
+            </mat-label>
+            <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+            <input type="number" matInput formControlName="hm">
+            <mat-error>Please enter value</mat-error>
+        </mat-form-field>
     </form>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
-    <button mat-button [mat-dialog-close]="true">Save</button>
+    <button mat-button cdkFocusInitial (click)="close()">Cancel</button>
+    <button mat-button [disabled]="!settingFG.valid" [mat-dialog-close]="settingFG.value">Save</button>
 </mat-dialog-actions>
