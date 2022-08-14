@@ -2,8 +2,8 @@
     <span>{{title}}</span>
     <span class="example-spacer"></span>
     <button mat-icon-button (click)="openSettingDialog()">
-    <mat-icon>settings</mat-icon>
-  </button>
+        <mat-icon>settings</mat-icon>
+    </button>
 </mat-toolbar>
 
 <div class="content-section">
@@ -14,9 +14,20 @@
         <section>
             <h4>Input Section</h4>
             <mat-button-toggle-group [formControl]="metalFC" aria-label="Font Style">
-                <mat-button-toggle value="G">Gold</mat-button-toggle>
-                <mat-button-toggle value="S">Silver</mat-button-toggle>
+                <mat-button-toggle value="g916">G 916</mat-button-toggle>
+                <mat-button-toggle value="g22k">G 22K</mat-button-toggle>
+                <mat-button-toggle value="g750">G 750</mat-button-toggle>
+                <mat-button-toggle value="s">Silver</mat-button-toggle>
             </mat-button-toggle-group>
+            <div style="margin-top: 10px;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Item weight</mat-label>
+                    <input type="number" matInput placeholder="Item weight in gram" autocomplete="off">
+                    <div class="weight-unit" matSuffix>Gram</div>
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="primary">CALCULATE</button>
         </section>
     </div>
 </div>

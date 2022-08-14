@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'JCalc';
 
   // form controls
-  metalFC = new FormControl('G');
+  metalFC = new FormControl('g916');
 
   constructor(private dialog: MatDialog,
     private storageService: StorageService,
