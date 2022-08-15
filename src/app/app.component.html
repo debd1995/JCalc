@@ -60,22 +60,38 @@
     </div>
     <div class="input">
         <section>
-            <h4>Input Section</h4>
-            <mat-button-toggle-group [formControl]="metalFC" aria-label="Font Style">
-                <mat-button-toggle value="g916">G 916</mat-button-toggle>
-                <mat-button-toggle value="g22k">G 22K</mat-button-toggle>
-                <mat-button-toggle value="g750">G 750</mat-button-toggle>
-                <mat-button-toggle value="s">Silver</mat-button-toggle>
-            </mat-button-toggle-group>
-            <div style="margin-top: 10px;">
-                <mat-form-field appearance="outline" class="weight-input">
-                    <mat-label>Item weight</mat-label>
-                    <input type="number" matInput placeholder="Enter in gram" autocomplete="off">
-                    <div class="weight-unit" matSuffix>&nbsp; <strong>gm</strong></div>
-                </mat-form-field>
-            </div>
+            <form [formGroup]="inputFG">
+                <h4>Input Section</h4>
+                <mat-button-toggle-group formControlName="metalFC" aria-label="Font Style">
+                    <mat-button-toggle value="g916">G 916</mat-button-toggle>
+                    <mat-button-toggle value="g22k">G 22K</mat-button-toggle>
+                    <mat-button-toggle value="g750">G 750</mat-button-toggle>
+                    <mat-button-toggle value="s">Silver</mat-button-toggle>
+                </mat-button-toggle-group>
+                <br>
 
-            <button mat-raised-button color="primary">CALCULATE</button>
+                <div style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 10px;">
+                    <mat-button-toggle-group formControlName="mcTypeFC" style="margin-top: 5px;" (change)="onMCTypeChange($event)">
+                        <mat-button-toggle value="pgm">Per gram</mat-button-toggle>
+                        <mat-button-toggle value="ppc">Per piece</mat-button-toggle>
+                    </mat-button-toggle-group>
+
+                    <mat-form-field id="making-charge" appearance="outline" class="weight-input" style="margin-left: 10px;">
+                        <mat-label>Making charge</mat-label>
+                        <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+                        <input type="number" matInput formControlName="fixedMc" autocomplete="off">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="weight-input">
+                        <mat-label>Item weight</mat-label>
+                        <input type="number" matInput placeholder="Enter in gram" formControlName="itemWeightFC" autocomplete="off">
+                        <div class="weight-unit" matSuffix>&nbsp; <strong>gm</strong></div>
+                    </mat-form-field>
+                </div>
+
+                <button mat-raised-button color="primary">CALCULATE</button>
+            </form>
         </section>
     </div>
 </div>
