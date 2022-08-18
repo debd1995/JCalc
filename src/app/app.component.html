@@ -7,55 +7,29 @@
 </mat-toolbar>
 
 <div class="content-section">
-    <div class="breakdown">
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
-        <p>Hello</p>
+    <div class="breakdown-section">
+        <table id="breakdown">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Desc.</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of breakdown.rows">
+                    <td>{{row.name}}</td>
+                    <td>{{row.desc}}</td>
+                    <td>{{row.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="white-space: nowrap;">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <div style="display: flex;">
+            <span>Total</span>
+            <span class="example-spacer"></span>
+            <span>{{breakdown.total}}</span>
+        </div>
 
     </div>
     <div class="input">
@@ -73,7 +47,7 @@
                 <div style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 10px;">
                     <mat-button-toggle-group formControlName="mcTypeFC" style="margin-top: 5px;" (change)="onMCTypeChange($event)">
                         <mat-button-toggle value="pgm">Per gram</mat-button-toggle>
-                        <mat-button-toggle value="ppc">Per piece</mat-button-toggle>
+                        <mat-button-toggle value="ppc">Fixed</mat-button-toggle>
                     </mat-button-toggle-group>
 
                     <mat-form-field id="making-charge" appearance="outline" class="weight-input" style="margin-left: 10px;">
@@ -82,6 +56,23 @@
                         <input type="number" matInput formControlName="fixedMc" autocomplete="off">
                     </mat-form-field>
                 </div>
+                <div style="display: flex; flex-direction: row; align-items: center; margin-top: -10px;">
+
+                    <div style="display: flex; flex-direction: row; align-items: flex-start; margin-right: 25px; margin-top: -10px;">
+                        <button mat-mini-fab color="primary" class="hmCount-button">-</button>
+                        <p style="margin-top: 8px; padding-left: 15px; padding-right: 15px;">
+                            <span style="font-size: 12px;">H.M.</span> &nbsp;<span style="font-size: 20px;">{{inputFG.get('hmCount')?.value}}</span> &nbsp;<span style="font-size: 12px;">pcs</span>
+                        </p>
+                        <button mat-mini-fab color="primary" class="hmCount-button">+</button>
+                    </div>
+
+                    <mat-form-field appearance="outline" class="weight-input">
+                        <mat-label>Other charges</mat-label>
+                        <img class="ic-inr" matPrefix src="assets/img/ic_inr.png">
+                        <input type="number" matInput formControlName="otherCharges" autocomplete="off">
+                    </mat-form-field>
+                </div>
+
                 <div>
                     <mat-form-field appearance="outline" class="weight-input">
                         <mat-label>Item weight</mat-label>
@@ -91,6 +82,7 @@
                 </div>
 
                 <button mat-raised-button color="primary">CALCULATE</button>
+                <button mat-raised-button color="warn" style="margin-left: 20px;">C</button>
             </form>
         </section>
     </div>

@@ -4,12 +4,13 @@
 
 .content-section {}
 
-.breakdown {
+.breakdown-section {
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     background-color: #f3f3f3;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 300px;
 }
 
@@ -41,6 +42,41 @@ html,
     height: 12px;
     margin-right: 10px;
     margin-bottom: 4px;
+}
+
+.hmCount-button {
+    font-size: 30px;
+}
+
+#breakdown {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+tbody {
+    height: 100px;
+    /* Just for the demo          */
+    overflow-y: auto;
+    /* Trigger vertical scroll    */
+    overflow-x: hidden;
+    /* Hide the horizontal scroll */
+}
+
+#breakdown td,
+#breakdown th {
+    padding: 8px;
+}
+
+#breakdown tr:hover {
+    background-color: #ddd;
+}
+
+#breakdown th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
 }
 
 
